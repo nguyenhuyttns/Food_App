@@ -17,7 +17,14 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: const Text('Food categories'),
+          title: const Text(
+            'Food categories',
+            style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontFamily: 'Doto'),
+          ),
           backgroundColor: Colors.purple,
         ),
         body: SafeArea(child: CategoriesPage()),
