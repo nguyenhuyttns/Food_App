@@ -1,15 +1,28 @@
 import 'package:flutter/material.dart';
+import './food_page.dart';
 import './models/category.dart';
 
 class CategoryItem extends StatelessWidget {
-  //1-category - 1 categoory object
   Category category;
+
   CategoryItem({required this.category});
 
   @override
   Widget build(BuildContext context) {
     Color _color = category.color;
-    return Container(
+
+    return InkWell(
+      onTap: () {
+        print("Tap to category: ${this.category.content}");
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => FoodsPage(
+              category: category,
+            ), // Đảm bảo tên chính xác
+          ),
+        );
+      },
+      splashColor: Colors.purpleAccent,
       child: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -20,7 +33,6 @@ class CategoryItem extends StatelessWidget {
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
           ),
-          color: _color,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
